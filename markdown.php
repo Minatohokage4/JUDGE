@@ -9,7 +9,7 @@
 # Original Markdown
 # Copyright (c) 2004-2006 John Gruber  
 # <http://daringfireball.net/projects/markdown/>
-#
+#**
 
 
 define( 'MARKDOWN_VERSION',  "1.0.1o" ); # Sun 8 Jan 2012
