@@ -1,9 +1,6 @@
 <?php
 /*
- * Codejudge
- * Copyright 2012, Sankha Narayan Guria (sankha93@gmail.com)
- * Licensed under MIT License.
- *
+
  * Shows the list of users
  */
 	require_once('../functions.php');

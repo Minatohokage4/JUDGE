@@ -1,8 +1,5 @@
 /*
- * Codejudge
- * Copyright 2012, Sankha Narayan Guria (sankha93@gmail.com)
- * Licensed under MIT License.
- *
+ 
  * Codejudge Timer Shell that executes a commend with a timeout period
  */
 

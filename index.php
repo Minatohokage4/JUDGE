@@ -1,9 +1,6 @@
 <?php
 /*
- * Codejudge
- * Copyright 2012, Sankha Narayan Guria (sankha93@gmail.com)
- * Licensed under MIT License.
- *
+
  * The main page that lists all the problem
  */
 	require_once('functions.php');
