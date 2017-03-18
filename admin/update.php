@@ -1,9 +1,7 @@
 <?php
 /*
-* Codejudge
- * NANTIPAT TULLWATTANA SOFTWARE ENGINEER
- * Licensed under MIT License.
- *
+ * Codejudge
+
  * script that performs some database operations
  */
 	include('../functions.php');

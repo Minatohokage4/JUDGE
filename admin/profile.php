@@ -1,9 +1,7 @@
 <?php
 /*
-* Codejudge
- * NANTIPAT TULLWATTANA SOFTWARE ENGINEER
- * Licensed under MIT License.
- *
+ * Codejudge
+
  * Profileof the users
  */
 	require_once('../functions.php');

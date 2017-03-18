@@ -1,9 +1,7 @@
 <?php
 /*
  * Codejudge
- * NANTIPAT TULLWATTANA SOFTWARE ENGINEER
- * Licensed under MIT License.
- *
+
  * Shows the list of users
  */
 	require_once('../functions.php');

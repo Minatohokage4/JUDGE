@@ -1,9 +1,7 @@
 <?php
 /*
-* Codejudge
- * NANTIPAT TULLWATTANA SOFTWARE ENGINEER
- * Licensed under MIT License.
- *
+ * Codejudge
+
  * Common functions used throughout Codejudge
  */
 session_start();

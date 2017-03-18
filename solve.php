@@ -1,7 +1,7 @@
 <?php
 /*
  * Codejudge
- * Copyright 2012, Sankha Narayan Guria (sankha93@gmail.com)
+ * * NANTIPAT TULLWATTANA SOFTWARE ENGINEER
  * Licensed under MIT License.
  *
  * Solution submission page
@@ -13,6 +13,7 @@
 		include('header.php');
 		connectdb();
 ?>
+
               <li><a href="index.php">Problems</a></li>
               <li><a href="submissions.php">Submissions</a></li>
               <li><a href="scoreboard.php">Scoreboard</a></li>
@@ -105,6 +106,7 @@
       Filename: <input class="span8" type="text" id="filename" name="filename" value="<?php if(!($num == 0)) echo($fields['filename']);?>"/>
       <br/>Type your program below:<br/><br/>
       <textarea style="font-family: mono; height:400px;" class="span9" name="soln" id="text"><?php if(!($num == 0)) echo($fields['soln']);?></textarea><br/>
+
       <?php if($accept['accept'] == 1 and $status['status'] == 1) echo("<input type=\"submit\" value=\"Run\" class=\"btn btn-primary btn-large\"/>");
             else echo("<input type=\"submit\" value=\"Run\" class=\"btn disabled btn-large\" disabled=\"disabled\"/>");
       ?>
@@ -122,7 +124,16 @@
 	}
       ?>
     </div> <!-- /container -->
-    
+
+    <!--add ace editor -->
+    <script src="jquery/jquery-1.8.3.min.js"></script>
+    <script src="ace/ace.js"></script>
+    <script src="ace/theme-tomorrow_night.js"></script>
+    <script src="ace/mode-ruby.js"></script>
+    <script src="ace/mode-c_cpp.js"></script>
+    <script src="jquery-ace.min.js"></script>
+
+
     <script language="javascript">
       function changeLang(lang) {
         $('#lang').remove();
@@ -136,6 +147,7 @@
         else if(lang== 'Python')
           $('#hlang').val('python');
       }
+      $('.span9').ace({ theme: 'tomorrow_night', lang: 'c_cpp' })
     </script>
 <?php
 	include('footer.php');

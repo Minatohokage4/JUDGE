@@ -1,6 +1,6 @@
 <?php
 /*
-* Codejudge
+ * Codejudge
  * NANTIPAT TULLWATTANA SOFTWARE ENGINEER
  * Licensed under MIT License.
  *

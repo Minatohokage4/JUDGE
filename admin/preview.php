@@ -1,9 +1,7 @@
 <?php
 /*
  * Codejudge
- * NANTIPAT TULLWATTANA SOFTWARE ENGINEER
- * Licensed under MIT License.
- *
+
  * PHP script that returns for AJAX requests
  */
 	if($_POST['action'] == 'preview') {

@@ -1,7 +1,7 @@
 <?php
 /*
  * Codejudge
- * Copyright 2012, Sankha Narayan Guria (sankha93@gmail.com)
+ ** NANTIPAT TULLWATTANA SOFTWARE ENGINEER
  * Licensed under MIT License.
  *
  * Submissions List page

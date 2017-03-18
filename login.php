@@ -1,16 +1,16 @@
 <?php
 /*
  * Codejudge
- * Copyright 2012, Sankha Narayan Guria (sankha93@gmail.com)
- * Licensed under MIT License.
- *
+
  * Codejudge Login page
  */
 	require_once('functions.php');
+
 	if(loggedin())
 		header("Location: index.php");
 	else if(isset($_POST['action'])) {
 		$username = array_key_exists('username', $_POST) ? mysql_real_escape_string(trim($_POST['username'])) : "";
+
 		if($_POST['action']=='login') {
 			if(trim($username) == "" or trim($_POST['password']) == "") {
 				header("Location: login.php?derror=1"); // empty entry
@@ -19,12 +19,19 @@
 				connectdb();
 				$query = "SELECT salt,hash FROM users WHERE username='".$username."'";
 				$result = mysql_query($query);
+
 				$fields = mysql_fetch_array($result);
 				$currhash = crypt($_POST['password'], $fields['salt']);
+
 				if($currhash == $fields['hash']) {
 					$_SESSION['username'] = $username;
-					header("Location: index.php");
-				} else
+                              //admin login
+                              if($currhash == "bmkVMsQ70yhfc")
+					header("Location: admin/index.php");
+
+				}
+                      
+                        else
 					header("Location: login.php?error=1");
 			}
 		} else if($_POST['action']=='register') {
