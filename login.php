@@ -4,10 +4,12 @@
 
  * Codejudge Login page
  */
+ 
 	require_once('functions.php');
 
 	if(loggedin())
 		header("Location: index.php");
+
 	else if(isset($_POST['action'])) {
 		$username = array_key_exists('username', $_POST) ? mysql_real_escape_string(trim($_POST['username'])) : "";
 
@@ -17,17 +19,19 @@
 			} else {
 				// code to login the user and start a session
 				connectdb();
-				$query = "SELECT salt,hash FROM users WHERE username='".$username."'";
+				$query = "SELECT sl,salt,hash FROM users WHERE username='".$username."'";
+                        // add sl for id
 				$result = mysql_query($query);
-
 				$fields = mysql_fetch_array($result);
 				$currhash = crypt($_POST['password'], $fields['salt']);
-
 				if($currhash == $fields['hash']) {
 					$_SESSION['username'] = $username;
+                              $_SESSION['sl'] =  $fields['sl'];
                               //admin login
-                              if($currhash == "bmkVMsQ70yhfc")
+          if($currhash == "bmkVMsQ70yhfc")
 					header("Location: admin/index.php");
+          if($currhash == "56706V.vDo81k")
+            header("Location: teacher/index.php");
 
 				}
                       
@@ -143,3 +147,4 @@
 <?php
 	include('footer.php');
 ?>
+
