@@ -13,8 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.1/css/bulma.min.css">
-  <script src="https://code.jquery.com/jquery.js"></script>
+    
  
     <!-- Le styles -->
     <link href="../css/bootstrap.css" rel="stylesheet">
@@ -28,7 +27,8 @@
         font-size: 11px;
       }
     </style>
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.1/css/bulma.min.css"> -->
+   <!-- BULMA-->
+     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.1/css/bulma.min.css">  -->
 
     <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 

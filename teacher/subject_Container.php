@@ -23,11 +23,11 @@ else
 
 <div class="container">
   <form action="event_Container.php" method="post" name='form1'>
-  <br><br><br><br>
+    <br><br><br><br>
     <div class="tile is-parent">
       <article class="tile is-child notification is-info">
         <p class="title">My Subject</p>
-       <a class="button is-primary" onclick='location.replace("subject_add.php")'>Build Subject</a>
+        <a class="button is-primary" onclick='location.replace("subject_add.php")'>Build Subject</a>
         <table class="table">
           <thead>
             <tr>
@@ -46,31 +46,36 @@ else
 
             $result = mysql_query($query);
            /* $fields = mysql_fetch_array($result);
-            $_SESSION['subject_id'] = $fields['subject_id'];*/
-            while($row = mysql_fetch_array($result,MYSQLI_NUM)) {
-              echo "<tr>";
-              echo "<td>".$row[0]."</td>";
-              echo "<td>".$row[1]."</td>";
-              echo "<td>";
-              echo "<div class='control is-grouped'>";
-              echo "<p class='control'>";
-              echo "<form method='post' action='event_Container.php'>";
-              /*echo "<button class='button is-success' >Enter</button> ";
-              echo "<button class='button is-info'  onClick='JavaScript:fncSubmit('student_list')''>Student List</button> ";
-              echo "<button class='button is-warning' onClick='JavaScript:fncSubmit('subject_Edit')''>Edit Subject</button> ";
-              echo "<button class='button is-danger' onClick='JavaScript:fncSubmit('subject_Container')'>Delete Subject</button>";*/
-              echo "</p>";
-              echo "</div>";
-              echo "</td>";
-              echo "</tr>";
-            }
-            ?>
-            
-          </tbody>
-        </table>  
-      </article>
-    </div>
-  </form>
+           $_SESSION['subject_id'] = $fields['subject_id'];*/
+            echo "<div class='control is-grouped'>";
+           while($row = mysql_fetch_array($result,MYSQLI_NUM)) {
+            echo "<tr>";
+            echo "<td>".$row[0]."</td>";
+            echo "<td>".$row[1]."</td>";
+            echo "<td>";
+          
+            echo "<p class='control'>";
+            echo "<form method='post' action='event_Container.php'>";
+            echo "<input type='hidden' name='subject_id' value=".$row[0].">";
+            echo "<input type='submit' class='button is-success' value='Enter'>";
+
+            /*echo "<button class='button is-success' >Enter</button> ";
+            echo "<button class='button is-info'  onClick='JavaScript:fncSubmit('student_list')''>Student List</button> ";
+            echo "<button class='button is-warning' onClick='JavaScript:fncSubmit('subject_Edit')''>Edit Subject</button> ";
+            echo "<button class='button is-danger' onClick='JavaScript:fncSubmit('subject_Container')'>Delete Subject</button>";*/
+            echo "</form>";
+            echo "</p>";
+            echo "</div>";
+            echo "</td>";
+            echo "</tr>";
+          }
+          ?>
+
+        </tbody>
+      </table>  
+    </article>
+  </div>
+</form>
 </div> <!-- /container -->
 
 <?php

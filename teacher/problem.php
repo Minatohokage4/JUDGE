@@ -13,11 +13,7 @@
     include('header.php');
     connectdb();
 ?>
-              <li class="active"><a href="#">Problems</a></li>
-              <li><a href="submissions.php">Submissions</a></li>
-              <li><a href="scoreboard.php">Scoreboard</a></li>
-              <li><a href="account.php">Account</a></li>
-              <li><a href="logout.php">Logout</a></li>
+              
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -34,7 +30,7 @@
         <li class="nav-header">AVAILABLE PROBLEMS</li>
         <?php
           // list all the problems from the database
-          $query = "SELECT * FROM problems";
+          $query = "SELECT * FROM problems where event_id='.$_POST[event_id].'";
             $result = mysql_query($query);
             if(mysql_num_rows($result)==0)
       echo("<li>None</li>\n"); // no problems are there

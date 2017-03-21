@@ -44,11 +44,8 @@ if(!loggedin())
 else
   include('header.php');
 connectdb();
-echo $_SESSION['subject_id'];
 ?>
-<li class="active"><a href="#">Problems</a></li>
 
-<li><a href="subject_Container.php">subject_Container</a></li>
 </ul>
 </div><!--/.nav-collapse -->
 </div>
@@ -74,7 +71,7 @@ echo $_SESSION['subject_id'];
           <tbody>
             <?php 
             connectdb();
-            $query = "SELECT event_id,event_name FROM event ";
+            $query = "SELECT event_id,event_name FROM event  where  subject_id='".$_POST['subject_id']."'";
             $result = mysql_query($query);
             while($row = mysql_fetch_array($result,MYSQLI_NUM)) {
               echo "<tr>";
@@ -83,10 +80,15 @@ echo $_SESSION['subject_id'];
               echo "<td>";
               echo "<div class='control is-grouped'>";
               echo "<p class='control'>";
-              echo "<button class='button is-success' >Enter</button> ";
+              echo "<form method='post' action='problem.php'>";
+              echo "<input type='hidden' name='event_id' value=".$row[0].">";
+              echo "<input type='submit' class='button is-success' value='Enter'>";
+              
+             /* echo "<button class='button is-success' >Editnter</button> ";
               echo "<button class='button is-info'  onClick='JavaScript:fncSubmit('student_list')''>Student List</button> ";
-              //echo "<button class='button is-warning' onClick='JavaScript:fncSubmit('subject_Edit')''>Edit Subject</button> ";
-              echo "<button class='button is-danger' onClick='JavaScript:fncSubmit('subject_Container')'>Delete event</button>";
+              echo "<button class='button is-warning' onClick='JavaScript:fncSubmit('subject_Edit')''>Edit Subject</button> ";
+              echo "<button class='button is-danger' onClick='JavaScript:fncSubmit('subject_Container')'>Delete event</button>";*/
+              echo "</form>";
               echo "</p>";
               echo "</div>";
               echo "</td>";
