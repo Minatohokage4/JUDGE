@@ -30,9 +30,11 @@
         <li class="nav-header">AVAILABLE PROBLEMS</li>
         <?php
           // list all the problems from the database
-          $query = "SELECT * FROM problems where event_id='.$_POST[event_id].'";
+  
+         $query = "SELECT * FROM problems where event_id=".$_POST['event_id'];
+
             $result = mysql_query($query);
-            if(mysql_num_rows($result)==0)
+            if(mysql_num_rows($result)==0) 
       echo("<li>None</li>\n"); // no problems are there
     else {
       while($row = mysql_fetch_array($result)) {
