@@ -31,8 +31,8 @@
         <?php
           // list all the problems from the database
   
-         $query = "SELECT * FROM problems where event_id=".$_POST['event_id'];
-
+         //$query = "SELECT * FROM problems where event_id=".$_POST['event_id'];
+        $query = "SELECT * FROM problems";
             $result = mysql_query($query);
             if(mysql_num_rows($result)==0) 
       echo("<li>None</li>\n"); // no problems are there
@@ -49,11 +49,13 @@
           else if($r['status'] == 2)
             $tag = " <span class=\"label label-success\">Solved</span>";
         }
+        //echo "=".$row['sl'];
         if(isset($_GET['id']) and $_GET['id']==$row['sl']) {
           $selected = $row;
           echo("<li class=\"active\"><a href=\"#\">".$row['name'].$tag."</a></li>\n");
                       } else
                         echo("<li><a href=\"index.php?id=".$row['sl']."\">".$row['name'].$tag."</a></li>\n");
+                      ;
                   }
     }
   ?>
@@ -80,6 +82,7 @@
       <?php
   }
       ?>
+
     </div> <!-- /container -->
 
 <?php

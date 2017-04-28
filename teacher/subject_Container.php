@@ -47,13 +47,13 @@ else
             $result = mysql_query($query);
            /* $fields = mysql_fetch_array($result);
            $_SESSION['subject_id'] = $fields['subject_id'];*/
-            echo "<div class='control is-grouped'>";
+           echo "<div class='control is-grouped'>";
            while($row = mysql_fetch_array($result,MYSQLI_NUM)) {
             echo "<tr>";
             echo "<td>".$row[0]."</td>";
             echo "<td>".$row[1]."</td>";
             echo "<td>";
-          
+
             echo "<p class='control'>";
             echo "<form method='post' action='event_Container.php'>";
             echo "<input type='hidden' name='subject_id' value=".$row[0].">";

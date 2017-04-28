@@ -1,34 +1,4 @@
-<script language="javascript">
-  function fncSubmit(strPage)
-  {
-    if(strPage == "student_list")
-    {
-      document.form1.action="student_list.php";
-    }
-    if(strPage == "subject_Edit")
-    {
-      document.form1.action="subject_Edit.php";F
-    }
-    if(strPage == "subject_Container")
-    {
-      document.form1.action="subject_Container.php";
-    }
-    document.form1.submit();
-  }
-    //Delete Subject
-    function chkConfirm()
-    {
-      if(confirm('Confirm Delete ?')==true)
-      {
-        alert('Success');
-      }
-      else
-      {
-        alert('Faill');
-      }
-    }
-    
-  </script>
+
   <?php
 /*
  * Codejudge
@@ -37,6 +7,9 @@
  *
  * The main page that lists all the problem
  */
+
+
+
 
 require_once('../functions.php');
 if(!loggedin())
@@ -70,8 +43,12 @@ connectdb();
 
           <tbody>
             <?php 
+
             connectdb();
-            $query = "SELECT event_id,event_name FROM event  where  subject_id='".$_POST['subject_id']."'";
+     
+
+
+            $query = "SELECT event_id,event_name FROM event  where  subject_id='". $_SESSION['subject_id']."'";
             $result = mysql_query($query);
             while($row = mysql_fetch_array($result,MYSQLI_NUM)) {
               echo "<tr>";
@@ -101,7 +78,8 @@ connectdb();
       </article>
     </div>
   </form> 
-</div> <!-- /container -->
+</div> 
+<!-- /container -->
 
 <?php
 include('footer.php');

@@ -51,6 +51,7 @@
 					else if($r['status'] == 2)
 						$tag = " <span class=\"label label-success\">Solved</span>";
 				}
+                        //echo $_GET['id']."=".$row['sl'];
 				if(isset($_GET['id']) and $_GET['id']==$row['sl']) {
 					$selected = $row;
 					echo("<li class=\"active\"><a href=\"#\">".$row['name'].$tag."</a></li>\n");

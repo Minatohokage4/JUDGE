@@ -70,7 +70,7 @@
       <?php
         // get the peviously submitted solution if exists
         if(is_numeric($_GET['id'])) {
-          $query = "SELECT * FROM solve WHERE (problem_id='".$_GET['id']."' AND username='".$_SESSION['username']."')";
+          $query = "SELECT * FROM solve WHERE (problem_id=' ".$_GET['id']." ' AND username='".$_SESSION['username']."')";
           $result = mysql_query($query);
           $num = mysql_num_rows($result);
           $fields = mysql_fetch_array($result);
