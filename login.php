@@ -4,7 +4,7 @@
 
  * Codejudge Login page
  */
- 
+
 	require_once('functions.php');
 
 	if(loggedin())
@@ -28,13 +28,17 @@
 					$_SESSION['username'] = $username;
                               $_SESSION['sl'] =  $fields['sl'];
                               //admin login
-          if($currhash == "bmkVMsQ70yhfc")
+          if($currhash == "bmkVMsQ70yhfc"){
 					header("Location: admin/index.php");
-          if($currhash == "56706V.vDo81k")
-            header("Location: teacher/index.php");
-
 				}
-                      
+          else if($currhash == "56706V.vDo81k"){
+            header("Location: teacher/index.php");
+					}
+          else{
+              header("Location: student/subject.php");
+						}
+				}
+
                         else
 					header("Location: login.php?error=1");
 			}
@@ -76,7 +80,7 @@
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
-      
+
       .footer {
         text-align: center;
         font-size: 11px;
@@ -147,4 +151,3 @@
 <?php
 	include('footer.php');
 ?>
-
