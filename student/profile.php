@@ -30,12 +30,20 @@ input[type=text], select {
     box-sizing: border-box;
 }
 </style>
+<div class="tabs is-centered">
+  <ul>
+    <li ><a href="subject.php">Subject</a></li>
+    <li class="is-active"><a href="profile.php">
+    <figure class="image is-16x16" style="margin-right: 8px;">
+          <img src="http://bulma.io/images/jgthms.png">
+        </figure>
+        Profile
+        </a>
+      </li>
+  </ul>
+
 </div>
-<table>
 
-
-</table>
-</ul>
 </div><!--/.nav-collapse -->
 </div>
 </div>
@@ -81,9 +89,9 @@ input[type=text], select {
           </font> <input type="text" color="#FF0000" style="width:560px"
            readonly="readonly" name="username" style="background:#FF0000" value="<?php echo $username ;?>" placeholder = "<?php echo $username ;?>"><br>
           <font  color="#000000" size="4">Name     :</font><br>
-        </font> <input type="text" style="width:560px" name="name" value="<?php echo $name ;?>" placeholder = "<?php echo $name ;?>"><br>
+        </font> <input class="input is-success" type="text" style="width:560px" name="name" value="<?php echo $name ;?>" placeholder = "<?php echo $name ;?>"><br>
           <font  color="#000000" size="4">LastName :</font><br>
-        </font> <input type="text" style="width:560px" name="lastname" value="<?php echo $lastname ;?>" placeholder = "<?php echo $lastname;?>"><br>
+        </font> <input class="input is-success" type="text" style="width:560px" name="lastname" value="<?php echo $lastname ;?>" placeholder = "<?php echo $lastname;?>"><br>
           <font  color="#000000" size="4">Email    :</font><br>
         </font> <input type="text" style="width:560px" name="email" value="<?php echo $email ;?>"  placeholder = "<?php echo $email;?>" ><br>
 
@@ -99,7 +107,7 @@ input[type=text], select {
           </form>
           <form action="subject.php" method="post">
           <p class="control">
-            <button class="button is-danger" onClick='history.back()'>Cancel</button>
+            <button class="button is-danger" onClick='subject.php'>Cancel</button>
           </p>
           </form>
         </div>

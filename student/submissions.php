@@ -13,7 +13,6 @@
 		include('header1.php');
 		connectdb();
 ?>					<li><a href="subject.php">Subject</a></li>
-            <li><a href="problem.php">Problems</a></li>
               <li class="active"><a href="#">Submissions</a></li>
               <li><a href="scoreboard.php">Scoreboard</a></li>
               <li><a href="../logout.php">Logout</a></li>

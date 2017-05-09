@@ -1,11 +1,5 @@
 <?php
-/*
- * Codejudge
- * * NANTIPAT TULLWATTANA SOFTWARE ENGINEER
- * Licensed under MIT License.
- *
- * Solution submission page
- */
+
 	require_once('../functions.php');
 	if(!loggedin())
 		header("Location: login.php");
@@ -14,11 +8,9 @@
 		connectdb();
 ?>
 
-              <li><a href="index.php">Problems</a></li>
               <li><a href="submissions.php">Submissions</a></li>
               <li><a href="scoreboard.php">Scoreboard</a></li>
-              <li><a href="account.php">Account</a></li>
-              <li><a href="logout.php">Logout</a></li>
+              <li><a href="../logout.php">Logout</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

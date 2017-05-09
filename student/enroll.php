@@ -19,14 +19,34 @@ else
         $query = "SELECT `username` FROM `users`  WHERE sl ='".$_SESSION['sl']."'";
     $result = mysql_query($query);
 
-    while($row = mysql_fetch_array($result,MYSQLI_NUM)) {
-       $username =  "$row[0]";
-    }
-     // echo $username ;
-      echo "<p align = 'right'><font size = '5'>คุณเข้าสู่ระบบในชื่อ
-      <a href='profile.php?username=$username'> $username </a><a href='../logout.php'>(LogOut)</a></font></p>" ;
+
+        while($row = mysql_fetch_array($result,MYSQLI_NUM)) {
+           $username =  "$row[0]";
+        }
+          //echo $username ;
+          echo "<p align = 'right'><font size = '5'>คุณเข้าสู่ระบบในชื่อ
+          <a href='profile.php?username=$username'> $username </a>";
+          echo "<a class='button is-small is-danger is-outlined' href='../logout.php'>Logout</a><br><br>";
+          echo date("l") ."&nbsp". date("d M Y")."<br>"."<br>" ."</font>" ;
+          echo "</p>"."<br>";
 
 ?>
+<div class="columns">
+  <br><br>
+  <div class="column">
+    <br><br><br><br>
+    <nav class="panel">
+  <p class="panel-heading">
+    calendar
+  </p>
+    <?php
+include('calendar.php');
+//include('clock.html');
+
+    ?>
+  </nav>
+  </div>
+  <div class="column">
 <div class="container">
   <form action="problem.php" method="post" name='form1'>
   <br><br><br><br>
@@ -72,6 +92,7 @@ connectdb();
     $result = mysql_query($query);
     $query1 = "SELECT subject_id,subject_name FROM regis  WHERE student_id='".$_SESSION['sl']."'";
     $result1 = mysql_query($query1);
+
     while($row = mysql_fetch_array($result1,MYSQLI_NUM)) {
         echo "<tr>";
         echo "<td>".$row[0]."</td>";
@@ -104,7 +125,8 @@ connectdb();
 </article>
 </div>
 </form>
-</div> <!-- /container -->
+</div>
+</div></div></div> <!-- /container -->
 
 <?php
 include('footer.php');

@@ -9,14 +9,25 @@ else
 
 ?>
 
-<li><a href="subject.php">Subject</a></li>
+<div class="tabs is-centered">
+  <ul>
+    <li ><a href="subject.php">Subject</a></li>
+    <li ><a href="profile.php">
+    <figure class="image is-16x16" style="margin-right: 8px;">
+          <img src="http://bulma.io/images/jgthms.png">
+        </figure>
+        Profile
+        </a>
+      </li>
+  </ul>
+</div>
+
 
 </ul>
 </div><!--/.nav-collapse -->
 </div>
 </div>
 </div>
-
 <?php
     $query = "SELECT `username` FROM `users`  WHERE sl ='".$_SESSION['sl']."'";
     $result = mysql_query($query);
@@ -24,14 +35,35 @@ else
     while($row = mysql_fetch_array($result,MYSQLI_NUM)) {
        $username =  "$row[0]";
     }
-     // echo $username ;
-     echo "<p align = 'right'><font size = '5'>คุณเข้าสู่ระบบในชื่อ
-     <a href='profile.php?username=$username'> $username </a><a href='../logout.php'>(LogOut)</a></font></p>" ;
-
+      //echo $username ;
+      echo "<p align = 'right'><font size = '5'>คุณเข้าสู่ระบบในชื่อ
+      <a href='profile.php?username=$username'> $username </a><a href='../logout.php'>(LogOut)</a>" ."<br>"."<br>";
+      echo date("l") ."&nbsp". date("d M Y")."<br>"."<br>" ."</font>" ;
+      include('time.php');
+      echo "</p>"."<br>";
 
 ?>
+
+<div class="columns">
+  <br><br>
+  <div class="column">
+    <br><br><br><br>
+    <nav class="panel">
+  <p class="panel-heading">
+    calendar
+  </p>
+    <?php
+include('calendar.php');
+//include('clock.html');
+
+    ?>
+  </nav>
+  </div>
+
+
+<div class="column">
 <div class="container">
-  <form action="index.php" method="post" name='form1'>
+  <form action="subject.php" method="post" name='form1'>
   <br><br><br><br>
     <div class="tile is-parent">
       <article class="tile is-child notification is-info">
@@ -82,7 +114,7 @@ if(mysql_num_rows($result)==0){
           echo "<td>";
           echo "<div class='control is-grouped'>";
           echo "<p class='control'>";
-          echo "<form method='post' action='problem.php'>";
+          //echo "<form method='post' action='problem.php'>";
           echo "</p>";
           echo "<p class='control'>";
           echo "</form>";
@@ -110,12 +142,13 @@ if(mysql_num_rows($result)==0){
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-<button class="button is-danger" onClick="history.back()" align="center">Cancel</button>
+</form>
+<button class="button is-danger" onClick="subject.php" align="center">Cancel</button>
 </p>
 </article>
 </div>
-</form>
-</div> <!--
+</div>
+</div></div> <!--
 
  <?php
  include('footer.php');

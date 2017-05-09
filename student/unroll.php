@@ -5,7 +5,7 @@ if(!loggedin())
   header("Location: login.php");
 else
   include('header.php');
-
+  connectdb();
 ?>
 
 <li><a href="subject.php">Subject</a></li>
@@ -16,8 +16,38 @@ else
 </div>
 </div>
 
+<?php
+    $query3 = "SELECT `username` FROM `users`  WHERE sl ='".$_SESSION['sl']."'";
+    $result3 = mysql_query($query3);
+
+    while($row = mysql_fetch_array($result3,MYSQLI_NUM)) {
+       $username =  "$row[0]";
+    }
+    echo "<p align = 'right'><font size = '5'>คุณเข้าสู่ระบบในชื่อ
+    <a href='profile.php?username=$username'> $username </a>";
+    echo "<a class='button is-small is-danger is-outlined' href='../logout.php'>Logout</a><br><br>";
+    echo date("l") ."&nbsp". date("d M Y")."<br>"."<br>" ."</font>" ;
+    echo "</p>"."<br>";
+
+?>
+<div class="columns">
+  <br><br>
+  <div class="column">
+    <br><br><br><br>
+    <nav class="panel">
+  <p class="panel-heading">
+    calendar
+  </p>
+    <?php
+include('calendar.php');
+//include('clock.html');
+
+    ?>
+  </nav>
+  </div>
+<div class="column">
 <div class="container">
-  <form action="problem.php" method="post" name='form1'>
+
   <br><br><br><br>
     <div class="tile is-parent">
       <article class="tile is-child notification is-info">
@@ -37,7 +67,7 @@ else
 
           <tbody>
             <?php
-            connectdb();
+
 
             $subject_id = $_GET['subject_id'];
             $query = "DELETE FROM regis WHERE subject_id ='$subject_id' and  student_id='".$_SESSION['sl']."'";
@@ -76,8 +106,7 @@ else
           </tbody>
         </table>
       </article>
-    </div>
-  </form>
+    </div></div></div></div>
 </div> <!-- /container -->
 
 <?php

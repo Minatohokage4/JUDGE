@@ -22,12 +22,24 @@ function chkdel(){if(confirm('Want to unenroll this subject?')){
 }
 </script>
 
+<div class="tabs is-centered">
+  <ul>
+    <li class="is-active"><a>Subject</a></li>
+    <li ><a href="profile.php">
+    <figure class="image is-16x16" style="margin-right: 8px;">
+          <img src="http://bulma.io/images/jgthms.png">
+        </figure>
+        Profile
+        </a>
+      </li>
+  </ul>
 
+
+</div>
 </div><!--/.nav-collapse -->
 </div>
 </div>
 </div>
-
 
 <?php
     $query = "SELECT `username` FROM `users`  WHERE sl ='".$_SESSION['sl']."'";
@@ -36,15 +48,33 @@ function chkdel(){if(confirm('Want to unenroll this subject?')){
     while($row = mysql_fetch_array($result,MYSQLI_NUM)) {
        $username =  "$row[0]";
     }
-     // echo $username ;
+      //echo $username ;
       echo "<p align = 'right'><font size = '5'>คุณเข้าสู่ระบบในชื่อ
-      <a href='profile.php?username=$username'> $username </a><a href='../logout.php'>(LogOut)</a></font></p>" ;
+      <a href='profile.php?username=$username'> $username </a>";
+      echo "<a class='button is-small is-danger is-outlined' href='../logout.php'>Logout</a><br><br>";
+      echo date("l") ."&nbsp". date("d M Y")."<br>"."<br>" ."</font>" ;
+      include('time.php');
+      echo "</p>"."<br>";
 
 ?>
+<div class="columns">
+  <br><br>
+  <div class="column">
+    <br><br><br><br>
+    <nav class="panel">
+  <p class="panel-heading">
+    calendar
+  </p>
+    <?php
+include('calendar.php');
+//include('clock.html');
 
+    ?>
+  </nav>
+  </div>
+<div class="column">
 <div class="container">
-  <br><br><br><br>
-
+  <br>
     <div class="tile is-parent">
       <article class="tile is-child notification is-info">
         <p class="title">My Subject</p>
@@ -123,8 +153,9 @@ function chkdel(){if(confirm('Want to unenroll this subject?')){
         </table>
       </article>
     </div>
-</div> <!-- /container -->
+</div></div></div></div>
 
 <?php
 include('footer.php');
 ?>
+</div>

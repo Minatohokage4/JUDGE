@@ -17,10 +17,14 @@
     </div>
 
     <div class="container">
+
     <?php
         if(isset($_GET['success']))
           echo("<div class=\"alert alert-success\">\nCongratulations! You have solved the problem successfully.\n</div>");
     ?>
+
+
+
     Below is a list of available problems for you to solve.<br/><br/>
       <ul class="nav nav-list">
         <li class="nav-header">AVAILABLE PROBLEMS</li>
