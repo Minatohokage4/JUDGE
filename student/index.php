@@ -6,9 +6,12 @@
   else
     include('header1.php');
     connectdb();
+    $event_id = $_GET['event_id'];
 ?>
-                  <li class="active"><a href="#">Problems</a></li>
-              <li><a href="Subject.php">Subject </a></li>
+              <li class="active"><a href="#">Problems</a></li>
+              <li><a href="subject.php">Subject </a></li>
+              <li><a href="submissions.php?event_id=<?php echo $event_id ?>">Submissions</a></li>
+              <li><a href="scoreboard.php?event_id=<?php echo $event_id ?>">Scoreboard</a></li>
 
             </ul>
           </div><!--/.nav-collapse -->
@@ -29,7 +32,7 @@
       <ul class="nav nav-list">
         <li class="nav-header">AVAILABLE PROBLEMS</li>
         <?php
-         $event_id = $_GET['event_id'];
+
 
 
           // list all the problems from the database

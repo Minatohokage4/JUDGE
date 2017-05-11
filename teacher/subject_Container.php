@@ -20,6 +20,13 @@ else
 </div>
 </div>
 </div>
+<?php
+  if(isset($_GET['changed']))
+    echo("<div class=\"alert alert-success\">\nSettings Saved!\n</div>");
+  if(isset($_GET['delete']))
+      echo("<div class=\"alert alert-success\">\nDelete Complete\n</div>");
+
+  ?>
 
 <div class="container">
   <form action="event_Container.php" method="post" name='form1'>
@@ -40,7 +47,7 @@ else
           </thead>
 
           <tbody>
-            <?php 
+            <?php
             connectdb();
             $query = "SELECT subject_id,subject_name FROM subject  WHERE Teacher_id='".$_SESSION['sl']."'";
 
@@ -53,16 +60,19 @@ else
             echo "<td>".$row[0]."</td>";
             echo "<td>".$row[1]."</td>";
             echo "<td>";
-
             echo "<p class='control'>";
             echo "<form method='post' action='event_Container.php'>";
             echo "<input type='hidden' name='subject_id' value=".$row[0].">";
             echo "<input type='submit' class='button is-success' value='Enter'>";
-
-            /*echo "<button class='button is-success' >Enter</button> ";
-            echo "<button class='button is-info'  onClick='JavaScript:fncSubmit('student_list')''>Student List</button> ";
-            echo "<button class='button is-warning' onClick='JavaScript:fncSubmit('subject_Edit')''>Edit Subject</button> ";
-            echo "<button class='button is-danger' onClick='JavaScript:fncSubmit('subject_Container')'>Delete Subject</button>";*/
+            echo "</form>";
+            echo "<form method='post' action='edit.php'>";
+            echo "<input type='hidden' name='subject_id' value=".$row[0].">";
+            echo "<input type='hidden' name='subject_name' value=".$row[1].">";
+            echo "<input type='submit' class='button is-success' value='Edit'>";
+            echo "</form>";
+            echo "<form method='post' action='delete_subject.php'>";
+            echo "<input type='hidden' name='subject_id' value=".$row[0].">";
+            echo "<input type='submit' class='button is-success' value='Delete'>";
             echo "</form>";
             echo "</p>";
             echo "</div>";
@@ -72,7 +82,7 @@ else
           ?>
 
         </tbody>
-      </table>  
+      </table>
     </article>
   </div>
 </form>

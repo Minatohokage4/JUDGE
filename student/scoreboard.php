@@ -10,10 +10,11 @@
 	else
 		include('header1.php');
 		connectdb();
+		$event_id = $_GET['event_id'];
 ?>
 							<li><a href="subject.php">Subject</a></li>
-              <li><a href="problem.php">Problems</a></li>
-              <li><a href="submissions.php">Submissions</a></li>
+              <li><a href="index.php?event_id=<?php echo $event_id ?>">Problems</a></li>
+              <li><a href="submissions.php?event_id=<?php echo $event_id ?>">Submissions</a></li>
               <li class="active"><a href="#">Scoreboard</a></li>
               <li><a href="../logout.php">Logout</a></li>
             </ul>
@@ -32,6 +33,8 @@
       </tr></thead>
       <tbody>
       <?php
+				$event_id = $_GET['event_id'];
+				echo $event_id ;
         $query = "SELECT username, status FROM users WHERE username!='admin'";
         $result = mysql_query($query);
        	while($row = mysql_fetch_array($result)) {

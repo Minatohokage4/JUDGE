@@ -12,9 +12,12 @@
 	else
 		include('header1.php');
 		connectdb();
-?>					<li><a href="subject.php">Subject</a></li>
+		$event_id = $_GET['event_id'];
+?>
+
+							<li><a href="subject.php">Subject</a></li>
               <li class="active"><a href="#">Submissions</a></li>
-              <li><a href="scoreboard.php">Scoreboard</a></li>
+              <li><a href="scoreboard.php?event_id=<?php echo $event_id ?>">Scoreboard</a></li>
               <li><a href="../logout.php">Logout</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -36,7 +39,8 @@
         $query = "SELECT problem_id, status, attempts FROM solve WHERE username='".$_SESSION['username']."'";
         $result = mysql_query($query);
        	while($row = mysql_fetch_array($result)) {
-       		$sql = "SELECT name FROM problems WHERE sl=".$row['problem_id'];
+       		$sql = "SELECT name FROM problems1 WHERE sl=".$row['problem_id']."";
+					echo "$sql";
        		$res = mysql_query($sql);
        		if(mysql_num_rows($res) != 0) {
        			$field = mysql_fetch_array($res);

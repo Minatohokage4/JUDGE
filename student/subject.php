@@ -5,7 +5,7 @@ if(!loggedin())
   header("Location: login.php");
 else
   include('header.php');
-  $query2 = "SELECT `name`, lastname FROM profile  WHERE sl ='".$_SESSION['sl']."'";
+  $query2 = "SELECT `name`, lastname FROM profile  WHERE sl ='".$_SESSION['sl']."' ";
   $result2 = mysql_query($query2);
 
   if(mysql_num_rows($result2)==0){
