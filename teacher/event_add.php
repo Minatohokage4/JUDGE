@@ -18,41 +18,13 @@
 .button5 {background-color: #555555;} /* Black */
 </style>
 <?php
-/*
- * Codejudge
- * NANTIPAT TULLWATTANA SOFTWARE ENGINEER
- * Licensed under MIT License.
- *
- * The main page that lists all the problem
- */
+
 require_once('../functions.php');
 if(!loggedin())
   header("Location: login.php");
 else
   include('header.php');
-if(isset($_POST['action'])) {
-  $username = array_key_exists('username', $_POST) ? mysql_real_escape_string(trim($_POST['username'])) : "";
-  if($_POST['action']=='subject_add') {
-
-    $SubjectNo= array_key_exists('SubjectNo', $_POST) ? mysql_real_escape_string(trim($_POST['SubjectNo'])) : "";
-    $SubjectName= array_key_exists('SubjectName', $_POST) ? mysql_real_escape_string(trim($_POST['SubjectName'])) : "";
-    if(trim($SubjectNo) == "" and trim( $SubjectName) == "") {
-        header("Location: subject_add.php?derror=1"); // empty entry
-      } else {
-        connectdb();
-        $query = "SELECT salt,hash FROM users WHERE username='".$username."'";
-        $result = mysql_query($query);
-
-
-        $sql="INSERT INTO `subject` ( `subject_id` , `subject_name` , `Teacher_id`) VALUES ('".$SubjectNo."', '". $SubjectName."','".$_SESSION['sl']."')";
-        mysql_query($sql);
-        header("Location: subject_Container.php");
-
-      }
-    }
-  }
-
-
+$subject_id = $_POST["subject_id"];
   ?>
   <style>
   input[type=text] {
@@ -86,17 +58,14 @@ else if(isset($_GET['derror']))
   <br><br><br><br>
   <div class="tile is-parent">
     <article class="tile is-child notification is-info">
-      <p class="title"><font size = '6'>Add Subject</font></p>
+      <p class="title"><font size = '6'>Add Event</font></p>
       <p align = 'right'>
-      <form method="post" action="subject_add.php">
+      <form method="post" action="add_event.php">
         <input type="hidden" name="action" value="subject_add"/>
-        <label class="label">Subject No</label>
-        <p class="control">
-          <input class="input is-success" name='SubjectNo' type="text" placeholder="" >
-        </p>
-        <label class="label">Subject Name</label>
+        <label class="label">Event Name</label>
         <p class="control has-icon has-icon-right">
-          <input class="input is-success" name='SubjectName' type="text" placeholder="" >
+          <input class="input is-success" name='event_name' type="text" placeholder="Event Name" >
+          <input type='hidden' name='subject_id' value='<?php echo $subject_id; ?>'>
           <span class="icon is-small">
             <i class="fa fa-check"></i>
           </span>
@@ -106,7 +75,7 @@ else if(isset($_GET['derror']))
           <input class="button2" type="submit" name="submit" value="Submit"/>
         </div>
       </form>
-      <button class="button3" onclick="window.location.href='subject_Container.php'">Back</button>
+      <button class="button3" onclick="window.location.href='event_Container.php'">Back</button>
       </p>
     </div> <!-- /container -->
 

@@ -4,35 +4,48 @@ if(!loggedin())
   header("Location: login.php");
 else
   include('header.php');
-    $subject_id = $_POST['subject_id'];
-    $subject_name = $_POST['subject_name'];
-   //echo $subject_id ;
-if(isset($_POST['action'])) {
-  $username = array_key_exists('username', $_POST) ? mysql_real_escape_string(trim($_POST['username'])) : "";
-  if($_POST['action']=='subject_add') {
+$subject_id = $_POST['subject_id'];
+$subject_name = $_POST['subject_name'];
 
-    $SubjectNo= array_key_exists('SubjectNo', $_POST) ? mysql_real_escape_string(trim($_POST['SubjectNo'])) : "";
-    $SubjectName= array_key_exists('SubjectName', $_POST) ? mysql_real_escape_string(trim($_POST['SubjectName'])) : "";
-    if(trim($SubjectNo) == "" and trim( $SubjectName) == "") {
-        header("Location: subject_add.php?derror=1"); // empty entry
-      } else {
-        connectdb();
-        $query = "SELECT salt,hash FROM users WHERE username='".$username."'";
-        $result = mysql_query($query);
+?>
+<style>
+.button {
+    background-color: #00FF00 ; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 
+.button2 {background-color: #008CBA;} /* Blue */
+.button3 {background-color: #f44336;} /* Red */
+.button4 {background-color: #e7e7e7; color: black;} /* Gray */
+.button5 {background-color: #555555;} /* Black */
 
-        $sql="UPDATE `subject` ( `subject_id` , `subject_name` , `Teacher_id`) SET ('".$SubjectNo."', '". $SubjectName."','".$_SESSION['sl']."')";
-        mysql_query($sql);
-        header("Location: subject_Container.php");
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
 
-      }
-    }
-  }
+th, td {
+    text-align: left;
+    padding: 8px;
+}
 
+tr:nth-child(even){background-color: #f2f2f2}
 
-  ?>
+th {
+    background-color:  #0000FF ;
+    color: white;
+}
 
-  <li><a href="subject_Container.php">subject_Container</a></li>
+</style>
+<li><a href="subject_Container.php">subject_Container</a></li>
 </ul>
 </div><!--/.nav-collapse -->
 </div>
@@ -55,28 +68,32 @@ else if(isset($_GET['derror']))
   <br><br><br><br>
   <div class="tile is-parent">
     <article class="tile is-child notification is-info">
-      <p class="title">Edit Subject</p>
+
+      <p class="title"><font size = '6'>Edit Subject</font></p>
+      <p align = 'right'>
+        <br><br>
       <form method="post" action="edit_subject.php">
         <input type="hidden" name="action" value="edit"/>
         <label class="label">Subject No</label>
         <p class="control">
-          <input class="input is-success" name='subject_id' type="text" value="<?php echo $subject_id; ?>" >
+          <input class="input is-success" name='subject_id_0' type="text" value="<?php echo $subject_id; ?>" >
         </p>
         <label class="label">Subject Name</label>
         <p class="control has-icon has-icon-right">
           <input class="input is-success" name='subject_name' type="text" value="<?php echo $subject_name; ?>" >
-          <input type='hidden' name='subject_id0' value="<?php echo $subject_id; ?>">
+          <input type='hidden' name='subject_id' value="<?php echo $subject_id; ?>">
+
           <span class="icon is-small">
             <i class="fa fa-check"></i>
           </span>
         </p>
+        <br><br>
         <div class="control is-grouped">
           <p class="control">
 
-            <input class="button is-primary" type="submit" name="submit" value="Submit"/>
-          </p>
-          <p class="control">
-          <a class='button is-danger'  onClick='window.history.back();'>Back</a>
+          <input class="button2" type="submit" name="submit" value="Submit"/>
+          <button class="button3" onClick='subject_Container.php'>Cancel</button>
+
           </p>
         </div>
       </form>
