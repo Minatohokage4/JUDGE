@@ -50,7 +50,14 @@
 			if(trim($_POST['title']) == "" or trim($_POST['problem']) == "" or !is_numeric($_POST['time']))
 				header("Location: problems.php?derror=1");
 			else {
-				$query="INSERT INTO `problems` ( `name` , `text`, `input`, `output`, `time`) VALUES ('".mysql_real_escape_string($_POST['title'])."', '".mysql_real_escape_string($_POST['problem'])."', '".mysql_real_escape_string($_POST['input'])."', '".mysql_real_escape_string($_POST['output'])."', '".$_POST['time']."')";
+				$query="INSERT INTO `problems` ( `name` , `text`, `input`, `output`, `time`,`event_id`) 
+				VALUES ('".mysql_real_escape_string($_POST['title'])."', 
+				'".mysql_real_escape_string($_POST['problem'])."',
+				 '".mysql_real_escape_string($_POST['input'])."', 
+				 '".mysql_real_escape_string($_POST['output'])."', 
+				 '".$_POST['time']."',
+				 1)";
+				 echo $query."<br>";
 				mysql_query($query);
 				header("Location: problems.php?added=1");
 			}

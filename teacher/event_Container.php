@@ -1,5 +1,5 @@
 
-  <?php
+<?php
 /*
  * Codejudge
  * NANTIPAT TULLWATTANA SOFTWARE ENGINEER
@@ -17,6 +17,7 @@ if(!loggedin())
 else
   include('header.php');
 connectdb();
+$subject_id = $_POST["subject_id"];
 ?>
 
 </ul>
@@ -42,13 +43,13 @@ connectdb();
           </thead>
 
           <tbody>
-            <?php 
+            <?php
 
             connectdb();
-     
 
 
-            $query = "SELECT event_id,event_name FROM event  where  subject_id='". $_SESSION['subject_id']."'";
+
+            $query = "SELECT event_id,event_name FROM event where subject_id='$subject_id'";
             $result = mysql_query($query);
             while($row = mysql_fetch_array($result,MYSQLI_NUM)) {
               echo "<tr>";
@@ -58,13 +59,17 @@ connectdb();
               echo "<div class='control is-grouped'>";
               echo "<p class='control'>";
               echo "<form method='post' action='problem.php'>";
-              echo "<input type='hidden' name='event_id' value=".$row[0].">";
+              echo "<input type='hidden' name='subject_id' value=".$row[1].">";
               echo "<input type='submit' class='button is-success' value='Enter'>";
-              
-             /* echo "<button class='button is-success' >Editnter</button> ";
-              echo "<button class='button is-info'  onClick='JavaScript:fncSubmit('student_list')''>Student List</button> ";
-              echo "<button class='button is-warning' onClick='JavaScript:fncSubmit('subject_Edit')''>Edit Subject</button> ";
-              echo "<button class='button is-danger' onClick='JavaScript:fncSubmit('subject_Container')'>Delete event</button>";*/
+              echo "</form>";
+              echo "<form method='post' action='edit_e.php'>";
+              echo "<input type='hidden' name='event_id' value=".$row[0].">";
+              echo "<input type='hidden' name='event_name' value=".$row[1].">";
+              echo "<input type='submit' class='button is-success' value='Edit'>";
+              echo "</form>";
+              echo "<form method='post' action='delete_event.php'>";
+              echo "<input type='hidden' name='event_id' value=".$row[0].">";
+              echo "<input type='submit' class='button is-success' value='Delete'>";
               echo "</form>";
               echo "</p>";
               echo "</div>";
@@ -73,12 +78,12 @@ connectdb();
             }
             ?>
           </tbody>
-        </table>  
-        
+        </table>
+
       </article>
     </div>
-  </form> 
-</div> 
+  </form>
+</div>
 <!-- /container -->
 
 <?php
