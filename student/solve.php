@@ -4,10 +4,9 @@
 	if(!loggedin())
 		header("Location: login.php");
 	else
-		include('header1.php');
+		include('header.php');
 		connectdb();
 ?>
-
               <li><a href="submissions.php">Submissions</a></li>
               <li><a href="scoreboard.php">Scoreboard</a></li>
               <li><a href="../logout.php">Logout</a></li>
@@ -49,7 +48,7 @@
       <?php
         // display the problem statement
       	if(isset($_GET['id']) and is_numeric($_GET['id'])) {
-      		$query = "SELECT * FROM problems1 WHERE sl='".$_GET['id']."'";
+      		$query = "SELECT * FROM problems WHERE sl='".$_GET['id']."'";
           	$result = mysql_query($query);
           	$row = mysql_fetch_array($result);
       		include('markdown.php');

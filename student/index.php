@@ -37,7 +37,7 @@
 
           // list all the problems from the database
           //$query = "SELECT * FROM problems";
-           $query = "SELECT * FROM problems1 where event_id = '$event_id'";
+           $query = "SELECT * FROM problems where event_id = '$event_id'";
             $result = mysql_query($query);
             if(mysql_num_rows($result)==0)
       echo("<li>None</li>\n"); // no problems are there

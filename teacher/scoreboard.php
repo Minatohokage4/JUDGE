@@ -26,7 +26,7 @@
       <thead><tr>
         <th>Name</th>
            <?php
-        $query = "SELECT name,sl FROM problems WHERE event_id=1";
+        $query = "SELECT name,sl FROM problems WHERE event_id=2";
         $result = mysql_query($query);
         // add variable
         $problems_by_id=array();

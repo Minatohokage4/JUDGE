@@ -1,3 +1,22 @@
+<style>
+.button {
+    background-color: #00FF00 ; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button2 {background-color: #008CBA;} /* Blue */
+.button3 {background-color: #f44336;} /* Red */
+.button4 {background-color: #e7e7e7; color: black;} /* Gray */
+.button5 {background-color: #555555;} /* Black */
+</style>
 <?php
 /*
  * Codejudge
@@ -28,14 +47,23 @@ if(isset($_POST['action'])) {
         $sql="INSERT INTO `subject` ( `subject_id` , `subject_name` , `Teacher_id`) VALUES ('".$SubjectNo."', '". $SubjectName."','".$_SESSION['sl']."')";
         mysql_query($sql);
         header("Location: subject_Container.php");
-        
+
       }
     }
   }
 
 
   ?>
-
+  <style>
+  input[type=text] {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid red;
+    border-radius: 4px;
+  }
+  </style>
   <li><a href="subject_Container.php">subject_Container</a></li>
 </ul>
 </div><!--/.nav-collapse -->
@@ -58,10 +86,11 @@ else if(isset($_GET['derror']))
   <br><br><br><br>
   <div class="tile is-parent">
     <article class="tile is-child notification is-info">
-      <p class="title">Add Subject</p>
+      <p class="title"><font size = '6'>Add Subject</font></p>
+      <p align = 'right'>
       <form method="post" action="subject_add.php">
         <input type="hidden" name="action" value="subject_add"/>
-        <label class="label">Subject No</label>  
+        <label class="label">Subject No</label>
         <p class="control">
           <input class="input is-success" name='SubjectNo' type="text" placeholder="" >
         </p>
@@ -74,14 +103,11 @@ else if(isset($_GET['derror']))
         </p>
         <div class="control is-grouped">
           <p class="control">
-
-            <input class="button is-primary" type="submit" name="submit" value="Submit"/>
-          </p>
-          <p class="control">
-          <a class='button is-danger'  onClick='window.history.back();''>Back</a>
-          </p>
+          <input class="button2" type="submit" name="submit" value="Submit"/>
         </div>
       </form>
+      <button class="button3" onclick="window.location.href='subject_Container.php'">Back</button>
+      </p>
     </div> <!-- /container -->
 
     <?php

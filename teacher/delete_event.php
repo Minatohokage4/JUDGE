@@ -11,10 +11,6 @@ echo $query1."<br>";*/
 $result = mysql_query($query);
 $result1 = mysql_query($query1);
 
-
-
-
-
 header("Location: subject_Container.php?delete");
 
 ?>
