@@ -107,8 +107,8 @@ th {
                 echo "<td>";
                 echo "<div class='control is-grouped'>";
                 echo "<p class='control'>";
-                echo "<form method='post' action='problem.php'>";
-                echo "<input type='hidden' name='subject_id' value=".$row[0].">";
+                echo "<form method='get' action='index.php'>";
+                echo "<input type='hidden' name='event_id' value=".$row[0].">";
                 echo "<input type='submit' class='button2' value='Enter'>";
                 echo "</form>";
                 echo "</td>";
