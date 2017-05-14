@@ -7,6 +7,7 @@
 	require_once('../functions.php');
 	include('dbinfo.php');
 	connectdb();
+	$event_id = $_POST['event_id'];
 	$query = "SELECT * FROM prefs";
         $result = mysql_query($query);
         $accept = mysql_fetch_array($result);
@@ -14,7 +15,7 @@
         $result = mysql_query($query);
         $status = mysql_fetch_array($result);
 	if (!preg_match("/^[^\\/?* :;{}\\\\]+\\.[^\\/?*: ;{}\\\\]{1,4}$/", $_POST['filename']))
-		header("Location: solve.php?ferror=1&id=".$_POST['id']); // invalid filename
+		header("Location: solve.php?ferror=1&event_id=$event_id&id=".$_POST['id']); // invalid filename
         // check if the user is banned or allowed to submit and SQL Injection checks
         else if($accept['accept'] == 1 and $status['status'] == 1 and is_numeric($_POST['id'])) {
         	$soln = mysql_real_escape_string($_POST['soln']);
@@ -22,7 +23,7 @@
         	$lang = mysql_real_escape_string($_POST['lang']);
         	//check if entries are empty
         	if(trim($soln) == "" or trim($filename) == "" or trim($lang) == "")
-        		header("Location: solve.php?derror=1&id=".$_POST['id']);
+        		header("Location: solve.php?derror=1&event_id=$event_id&id=".$_POST['id']);
         	else {
 			if($_POST['ctype']=='new')
 				// add to database if it is a new submission
@@ -57,26 +58,26 @@
 					$query = "UPDATE solve SET status=1 WHERE (username='".$_SESSION['username']."' AND problem_id='".$_POST['id']."')";
 					mysql_query($query);
 					$_SESSION['cerror'] = trim($contents);
-					header("Location: solve.php?cerror=1&id=".$_POST['id']);
+					header("Location: solve.php?cerror=1&event_id=$event_id&id=".$_POST['id']);
 				} else if($status == 1) {
 					if(trim($contents) == trim(treat($fields['output']))) {
 						// holla! problem solved
 						$query = "UPDATE solve SET status=2 WHERE (username='".$_SESSION['username']."' AND problem_id='".$_POST['id']."')";
 						mysql_query($query);
-						header("Location: index.php?success=1");
+						header("Location: index.php?success=1&event_id=$event_id");
 					} else {
 						// duh! wrong output
 						$query = "UPDATE solve SET status=1 WHERE (username='".$_SESSION['username']."' AND problem_id='".$_POST['id']."')";
 						mysql_query($query);
-						header("Location: solve.php?oerror=1&id=".$_POST['id']);
+						header("Location: solve.php?&event_id=$event_idoerror=1&id=".$_POST['id']);
 					}
 				} else if($status == 2) {
 					$query = "UPDATE solve SET status=1 WHERE (username='".$_SESSION['username']."' AND problem_id='".$_POST['id']."')";
 					mysql_query($query);
-					header("Location: solve.php?terror=1&id=".$_POST['id']);
+					header("Location: solve.php?terror=1&event_id=$event_id&id=".$_POST['id']);
 				}
 			} else
-				header("Location: solve.php?serror=1&id=".$_POST['id']); // compiler server not running
+				header("Location: solve.php?serror=1&event_id=$event_id&id=".$_POST['id']); // compiler server not running
 		}
 	}
 ?>

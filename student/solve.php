@@ -30,7 +30,7 @@
         else if(isset($_GET['lerror']))
           echo("<div class=\"alert alert-error\">\nYou did not use one of the allowed languages. Please use a language that is allowed.\n</div>");
         else if(isset($_GET['serror']))
-          echo("<div class=\"alert alert-error\">\nCould not connect to the compiler server. Please contact the admin to solve the problem.\n</div>");
+          echo("<div class=\"alert alert-error\">\nCould not connect to the compiler server. Please contact the admin to solve the problem.\n</div>.");
         else if(isset($_GET['derror']))
           echo("<div class=\"alert alert-error\">\nPlease enter all the details asked before you can continue!\n</div>");
         else if(isset($_GET['ferror']))
@@ -76,6 +76,7 @@
         else
           echo('<input type="hidden" name="ctype" value="change"/>');
       ?>
+			<input type="hidden" name="event_id" value="<?php echo $event_id; ?>">
       <input type="hidden" name="id" value="<?php if(is_numeric($_GET['id'])) echo($_GET['id']);?>"/>
       <input type="hidden" name="lang" id="hlang" value="<?php if($num == 0) echo('c'); else echo($fields['lang']);?>"/>
       <div class="btn-group">
@@ -102,8 +103,7 @@
       <textarea style="font-family: mono; height:400px;" class="span9" name="soln" id="text"><?php if(!($num == 0)) echo($fields['soln']);?></textarea><br/>
 
       <?php if($accept['accept'] == 1 and $status['status'] == 1){
-			echo("<input type=\"submit\" value=\"Run\" class=\"btn btn-primary btn-large\"/>");
-			        echo "<input type='hidden' name='event_id ' value='$event_id' >" ;
+			echo("<input type=\"submit\" value=\"Run\" class=\"btn btn-primary btn-large\"/ >");
 						}
             else {
 							echo("<input type=\"submit\" value=\"Run\" class=\"btn disabled btn-large\" disabled=\"disabled\"/>");
