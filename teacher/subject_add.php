@@ -1,21 +1,50 @@
 <style>
+
 .button {
-    background-color: #00FF00 ; /* Green */
+    background-color: #4CAF50; /* Green */
+    border-radius: 10px;
     border: none;
     color: white;
     padding: 10px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 14px;
+    font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
 }
 
-.button2 {background-color: #008CBA;} /* Blue */
-.button3 {background-color: #f44336;} /* Red */
-.button4 {background-color: #e7e7e7; color: black;} /* Gray */
-.button5 {background-color: #555555;} /* Black */
+.button2 {background-color: #357EC7; /*ิblue enter button*/
+  border-radius: 10px;
+  border: none;
+  color: black;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;}
+
+.button3 {background-color: #BCC6CC;/*back button */
+  border-radius: 10px;
+  border: none;
+  color: black;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;}
+
+
+
+.button4 {background-color: #e7e7e7; color: black; /* Gray */
+}
+
+
+.button5 {background-color: #FFDB58; }
 </style>
 <?php
 /*
@@ -56,15 +85,19 @@ if(isset($_POST['action'])) {
   ?>
   <style>
   input[type=text] {
-    width: 20%;
-    padding: 12px 20px;
-    margin: 8px 0;
+    width: 25%;
+    padding: 15px 20px;
+    margin: 10px 0;
     box-sizing: border-box;
-    border: 2px solid red;
+    border: 2px solid gray;
     border-radius: 4px;
   }
   </style>
-  <li><a href="subject_Container.php">subject_Container</a></li>
+  <li class="active"><a href="subject_Container.php">Subject Container</a></li>
+  <li><a href="index.php">Teacher Panel</a></li>
+  <li><a href="users.php">Users</a></li>
+  <li><a href="scoreboard.php">Scoreboard</a></li>
+  <li><a href="logout.php">Logout</a></li>
 </ul>
 </div><!--/.nav-collapse -->
 </div>
@@ -90,11 +123,11 @@ else if(isset($_GET['derror']))
       <p align = 'right'>
       <form method="post" action="subject_add.php">
         <input type="hidden" name="action" value="subject_add"/>
-        <label class="label">Subject No</label>
+        <label class="label"><font size = '3'>Subject No</label>
         <p class="control">
           <input class="input is-success" name='SubjectNo' type="text" placeholder="" >
         </p>
-        <label class="label">Subject Name</label>
+        <label class="label"><font size = '3'>Subject Name</label>
         <p class="control has-icon has-icon-right">
           <input class="input is-success" name='SubjectName' type="text" placeholder="" >
           <span class="icon is-small">
@@ -106,7 +139,7 @@ else if(isset($_GET['derror']))
           <input class="button2" type="submit" name="submit" value="Submit"/>
         </div>
       </form>
-      <button class="button3" onclick="window.location.href='subject_Container.php'">Back</button>
+      <button class="button3" onClick='window.history.back();'>Back</button>
       </p>
     </div> <!-- /container -->
 

@@ -14,8 +14,10 @@
 		connectdb();
 		$event_id = $_GET['event_id'];
 ?>
-              <li class="active"><a href="index.php">Admin Panel</a></li>
-              <li><a href="#">Users</a></li>
+							<li><a href="subject_Container.php">Subject Container</a></li>
+              <li class="active"><a href="index.php">Teacher Panel</a></li>
+              <li><a href="users.php">Users</a></li>
+							<li><a href="scoreboard.php">Scoreboard</a></li>
               <li><a href="logout.php">Logout</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -45,14 +47,14 @@
             <li class="nav-header">ADDED PROBLEMS</li>
             	<?php
             	  // list all the problems
-            	  $query = "SELECT * FROM problems WHERE event_id = $event_id ";
+            	  $query = "SELECT * FROM problems1 WHERE event_id = $event_id ";
           	  $result = mysql_query($query);
 							echo $query ;
           	  if(mysql_num_rows($result)==0)
           	    echo("<li>None</li>\n");
           	  else {
           	    while($row = mysql_fetch_array($result)) {
-									
+
           	      if(isset($_GET['action']) and $_GET['action']=='edit' and isset($_GET['id']) and $_GET['id']==$row['sl']) {
           	        $selected = $row;
           	        echo("<li class=\"active\"><a href=\"problems.php?action=edit&id=".$row['sl']."\">".$row['name']."</a></li>\n");

@@ -13,8 +13,10 @@
 		include('header.php');
 		connectdb();
 ?>
-              <li><a href="index.php">Admin Panel</a></li>
+							<li><a href="subject_Container.php">Subject Container</a></li>
+              <li><a href="index.php">Teacher Panel</a></li>
               <li class="active"><a href="#about">Users</a></li>
+							<li><a href="scoreboard.php">Scoreboard</a></li>
               <li><a href="logout.php">Logout</a></li>
             </ul>
           </div><!--/.nav-collapse -->
