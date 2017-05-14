@@ -15,22 +15,70 @@ else
 ?>
 <style>
 .button {
-    background-color: #00FF00 ; /* Green */
+    background-color: #4CC552 ; /* Green Build subject*/
+    border-radius: 10px;
     border: none;
-    color: white;
+    color: black;
     padding: 10px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 14px;
+    font-size: 18px;
     margin: 4px 2px;
     cursor: pointer;
 }
 
-.button2 {background-color: #008CBA;} /* Blue */
-.button3 {background-color: #f44336;} /* Red */
-.button4 {background-color: #e7e7e7; color: black;} /* Gray */
-.button5 {background-color: #555555;} /* Black */
+.button2 {background-color: #357EC7; /*ิblue enter button*/
+  border-radius: 10px;
+  border: none;
+  color: black;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;}
+
+.button3 {background-color: #FF7373;/* Red delete button */
+  border-radius: 10px;
+  border: none;
+  color: black;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;}
+
+
+
+.button4 {background-color: #e7e7e7; color: black; /* Gray */
+  border-radius: 10px;
+  border: none;
+  color: black;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  }
+
+
+.button5 {background-color: #FFDB58; /* yellow edit button */
+  border-radius: 10px;
+  border: none;
+  color: black;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;}
 
 table {
     border-collapse: collapse;
@@ -39,17 +87,18 @@ table {
 
 th, td {
     text-align: left;
-    padding: 8px;
+    padding: 10px;
 }
 
 tr:nth-child(even){background-color: #f2f2f2}
 
 th {
-    background-color:  #0000FF ;
-    color: white;
+    background-color:  #66CCFF ;
+    color: black;
 }
 </style>
-<li class="active"><a href="subject_Container.php">subject_Container</a></li>
+<li class="active"><a href="subject_Container.php">Subject Container</a></li>
+<li><a href="logout.php">Logout</a></li>
 </ul>
 </div><!--/.nav-collapse -->
 </div>
@@ -68,7 +117,7 @@ th {
     <br><br><br><br>
     <div class="tile is-parent">
       <article class="tile is-child notification is-info">
-        <p class="title"><font size = '14'>My Subject</font></p>
+        <p class="title"><font size = '12'>My Subject</font></p>
         <p align = 'right'>
         <a class="button is-primary" onclick='location.replace("subject_add.php")' >Build Subject</a></p>
         <br><br>

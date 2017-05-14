@@ -13,8 +13,9 @@ $subject_id = $_POST["subject_id"];
 <style>
 .button {
     background-color: #4CAF50; /* Green */
+    border-radius: 10px;
     border: none;
-    color: white;
+    color: black;
     padding: 10px 25px;
     text-align: center;
     text-decoration: none;
@@ -24,10 +25,57 @@ $subject_id = $_POST["subject_id"];
     cursor: pointer;
 }
 
-.button2 {background-color: #008CBA;} /* Blue */
-.button3 {background-color: #f44336;} /* Red */
-.button4 {background-color: #e7e7e7; color: black;} /* Gray */
-.button5 {background-color: #555555;} /* Black */
+.button2 {background-color: #357EC7; /*ิblue enter button*/
+  border-radius: 10px;
+  border: none;
+  color: black;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;}
+
+.button3 {background-color: #FF7373;/* Red delete button */
+  border-radius: 10px;
+  border: none;
+  color: black;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;}
+
+
+
+.button4 {background-color: #e7e7e7; color: black; /* Gray */
+  border-radius: 10px;
+  border: none;
+  color: black;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  }
+
+
+.button5 {background-color: #FFDB58; /* yellow edit button */
+  border-radius: 10px;
+  border: none;
+  color: black;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;}
 
 table {
     border-collapse: collapse;
@@ -43,9 +91,14 @@ tr:nth-child(even){background-color: #f2f2f2}
 
 th {
     background-color: #4CAF50;
-    color: white;
+    color: black;
 }
 </style>
+<li class="active"><a href="subject_Container.php">subject_Container</a></li>
+<li><a href="index.php">Teacher Panel</a></li>
+<li><a href="active">Users</a></li>
+<li><a href="scoreboard.php">Scoreboard</a></li>
+<li><a href="logout.php">Logout</a></li>
 </ul>
 </div><!--/.nav-collapse -->
 </div>

@@ -22,8 +22,29 @@ $subject_name = $_POST['subject_name'];
     cursor: pointer;
 }
 
-.button2 {background-color: #008CBA;} /* Blue */
-.button3 {background-color: #f44336;} /* Red */
+.button2 {background-color: #357EC7; /*ิblue enter button*/
+  border-radius: 10px;
+  border: none;
+  color: black;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;}
+
+.button3 {background-color: #FF7373;/*back button */
+  border-radius: 10px;
+  border: none;
+  color: black;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;}
 .button4 {background-color: #e7e7e7; color: black;} /* Gray */
 .button5 {background-color: #555555;} /* Black */
 
@@ -45,7 +66,22 @@ th {
 }
 
 </style>
-<li><a href="subject_Container.php">subject_Container</a></li>
+<style>
+input[type=text] {
+  width: 25%;
+  padding: 15px 20px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  border: 2px solid gray;
+  border-radius: 4px;
+}
+</style>
+<li class="active"><a href="subject_Container.php">Subject Container</a></li>
+<li><a href="index.php">Teacher Panel</a></li>
+<li><a href="users.php">Users</a></li>
+<li><a href="scoreboard.php">Scoreboard</a></li>
+<li><a href="logout.php">Logout</a></li>
+
 </ul>
 </div><!--/.nav-collapse -->
 </div>
@@ -74,11 +110,11 @@ else if(isset($_GET['derror']))
         <br><br>
       <form method="post" action="edit_subject.php">
         <input type="hidden" name="action" value="edit"/>
-        <label class="label">Subject No</label>
+        <label class="label"><font size = '3'>Subject No</label>
         <p class="control">
           <input class="input is-success" name='subject_id_0' type="text" value="<?php echo $subject_id; ?>" >
         </p>
-        <label class="label">Subject Name</label>
+        <label class="label"><font size = '3'>Subject Name</label>
         <p class="control has-icon has-icon-right">
           <input class="input is-success" name='subject_name' type="text" value="<?php echo $subject_name; ?>" >
           <input type='hidden' name='subject_id' value="<?php echo $subject_id; ?>">

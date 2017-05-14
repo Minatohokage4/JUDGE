@@ -74,9 +74,17 @@ include('calendar.php');
             $query1 = "SELECT subject_id,subject_name FROM regis  WHERE student_id='".$_SESSION['sl']."'";
             $result = mysql_query($query);
             $result1 = mysql_query($query1);
-            /*$fields = mysql_fetch_array($result);
-            $_SESSION['subject_id'] = $fields['subject_id'];*/
-          //  echo $query;
+
+            $query2 = "SELECT sl FROM `problems` WHERE event_id in (SELECT event_id FROM event WHERE subject_id = '$subject_id')";
+            $result2 = mysql_query($query2);
+            //echo $query2."<br>";
+              while($row = mysql_fetch_array($result2,MYSQLI_NUM)) {
+                    $query3 = "DELETE FROM `solve` WHERE username in (SELECT username FROM users WHERE sl = '".$_SESSION['sl']."') AND problem_id in (SELECT sl FROM problems WHERE sl = '$row[0]' )";
+                    $result3 = mysql_query($query3);
+                  // echo $query3."<br>";
+                   }
+
+
           while($row = mysql_fetch_array($result1,MYSQLI_NUM)) {
               echo "<tr>";
               echo "<td>".$row[0]."</td>";
@@ -102,7 +110,7 @@ include('calendar.php');
             }
 
             ?>
-            <Meta http-equiv="refresh"content="1;URL=subject.php">
+          <Meta http-equiv="refresh"content="1;URL=subject.php">
           </tbody>
         </table>
       </article>

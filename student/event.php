@@ -37,11 +37,11 @@ else
     }
       //echo $username ;
       echo "<p align = 'right'><font size = '5'>คุณเข้าสู่ระบบในชื่อ
-      <a href='profile.php?username=$username'> $username </a><a href='../logout.php'>(LogOut)</a>" ."<br>"."<br>";
+      <a href='profile.php?username=$username'> $username </a>";
+      echo "<a class='button is-small is-danger is-outlined' href='../logout.php'>Logout</a><br><br>";
       echo date("l") ."&nbsp". date("d M Y")."<br>"."<br>" ."</font>" ;
       include('time.php');
       echo "</p>"."<br>";
-
 ?>
 
 <div class="columns">
@@ -148,7 +148,7 @@ if(mysql_num_rows($result)==0){
 </article>
 </div>
 </div>
-</div></div> <!--
+</div></div></div> </div></div><!--
 
  <?php
  include('footer.php');

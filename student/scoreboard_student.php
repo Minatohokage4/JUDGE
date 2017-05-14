@@ -8,11 +8,12 @@
 	if(!loggedin())
 		header("Location: login.php");
 	else
-		include('header.php');
+		include('header1.php');
 		connectdb();
-		$event_id = $_GET['event_id'];
+    $event_id = $_GET['event_id'];
 ?>
-
+              <li><a href="index.php?event_id=<?php echo $event_id ?>">Problems</a></li>
+              <li class="active"><a href="subject.php">Subject </a></li>
               <li class="active"><a href="#">Scoreboard</a></li>
 
             </ul>
@@ -41,7 +42,8 @@
       </tr></thead>
       <tbody>
       <?php
-        $query = "SELECT username, status FROM users WHERE sl IN(SELECT student_id FROM regis WHERE subject_id IN (SELECT subject_id FROM event WHERE event_id = '$event_id'))";
+        $query = "SELECT username, status FROM users WHERE sl ='".$_SESSION['sl']."'  ";
+        //echo $query ;
         $result = mysql_query($query);
         while($row = mysql_fetch_array($result)) {
           echo("<tr><td>".$row['username']." ");

@@ -4,11 +4,14 @@
 	if(!loggedin())
 		header("Location: login.php");
 	else
-		include('header.php');
+		include('header1.php');
 		connectdb();
+		$event_id = $_GET['event_id'];
 ?>
-              <li><a href="submissions.php">Submissions</a></li>
-              <li><a href="scoreboard.php">Scoreboard</a></li>
+							<li ><a href="index.php?event_id=<?php echo $event_id ?>">Problems</a></li>
+							<li><a href="subject.php">Subject </a></li>
+							<!--  <li><a href="submissions.php?event_id=<?php echo $event_id ?>">Submissions</a></li> -->
+							<li><a href="scoreboard_student.php?event_id=<?php echo $event_id ?>">Scoreboard</a></li>
               <li><a href="../logout.php">Logout</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -98,9 +101,14 @@
       <br/>Type your program below:<br/><br/>
       <textarea style="font-family: mono; height:400px;" class="span9" name="soln" id="text"><?php if(!($num == 0)) echo($fields['soln']);?></textarea><br/>
 
-      <?php if($accept['accept'] == 1 and $status['status'] == 1) echo("<input type=\"submit\" value=\"Run\" class=\"btn btn-primary btn-large\"/>");
-            else echo("<input type=\"submit\" value=\"Run\" class=\"btn disabled btn-large\" disabled=\"disabled\"/>");
-      ?>
+      <?php if($accept['accept'] == 1 and $status['status'] == 1){
+			echo("<input type=\"submit\" value=\"Run\" class=\"btn btn-primary btn-large\"/>");
+			        echo "<input type='hidden' name='event_id ' value='$event_id' >" ;
+						}
+            else {
+							echo("<input type=\"submit\" value=\"Run\" class=\"btn disabled btn-large\" disabled=\"disabled\"/>");
+}
+			?>
       <span class="label label-info">You are allowed to use any of the following languages:
       <?php $txt="";
         if($accept['c'] == 1) $txt = "C, ";

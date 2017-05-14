@@ -15,6 +15,7 @@
 		$event_id = $_GET['event_id'];
 ?>
               <li class="active"><a href="index.php">Admin Panel</a></li>
+							<li ><a href="scoreboard.php?event_id=<?php echo $event_id ?>">Score Board</a></li>
               <li><a href="#">Users</a></li>
               <li><a href="logout.php">Logout</a></li>
             </ul>
@@ -46,15 +47,19 @@
             	<?php
             	  // list all the problems
             	  $query = "SELECT * FROM problems WHERE event_id = $event_id ";
+								//$query = "SELECT * FROM problems  ";
           	  $result = mysql_query($query);
 							echo $query ;
           	  if(mysql_num_rows($result)==0)
           	    echo("<li>None</li>\n");
           	  else {
+
           	    while($row = mysql_fetch_array($result)) {
-									
+
           	      if(isset($_GET['action']) and $_GET['action']=='edit' and isset($_GET['id']) and $_GET['id']==$row['sl']) {
           	        $selected = $row;
+
+
           	        echo("<li class=\"active\"><a href=\"problems.php?action=edit&id=".$row['sl']."\">".$row['name']."</a></li>\n");
           	      } else
           	        echo("<li><a href=\"problems.php?action=edit&id=".$row['sl']."\">".$row['name']."</a></li>\n");
@@ -70,14 +75,16 @@
           	?>
           </ul>
           <hr/>
+
+
           <?php
             if(isset($_GET['action']) and $_GET['action']=='edit') {
               // edit a selected problem
           ?>
           <h1><small>Edit a Problem</small></h1>
           <form method="post" action="update.php">
-          <input type="hidden" name="action" value="editproblem" id="action"/>
-          <input type="hidden" name="id" id="id" value="<?php echo($selected['sl']);?>"/>
+          <input type="input" name="action" value="editproblem" id="action"/>
+          <input type="input" name="id" id="id" value="<?php echo($selected['sl']);?>"/>
           <ul class="nav nav-tabs">
             <li class="active"><a href="#tab1" data-toggle="tab">Problem</a></li>
             <li><a href="#tab2" data-toggle="tab">Sample Input</a></li>
@@ -111,7 +118,8 @@
           ?>
           <h1><small>Add a Problem</small></h1>
           <form method="post" action="update.php">
-          <input type="hidden" name="action" value="addproblem"/>
+          <input type="hidden" name="event_id" value="<?php echo $event_id ;?>"/>
+					  <input type="hidden" name="action" value="addproblem"/>
           <ul class="nav nav-tabs">
             <li class="active"><a href="#tab1" data-toggle="tab">Problem</a></li>
             <li><a href="#tab2" data-toggle="tab">Sample Input</a></li>

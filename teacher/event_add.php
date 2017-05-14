@@ -1,19 +1,30 @@
 <style>
 .button {
-    background-color: #00FF00 ; /* Green */
-    border: none;
-    color: white;
-    padding: 10px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
+    background-color: #00FF00 ; /* Green */}
 
-.button2 {background-color: #008CBA;} /* Blue */
-.button3 {background-color: #f44336;} /* Red */
+    .button2 {background-color: #357EC7; /*ิblue enter button*/
+      border-radius: 10px;
+      border: none;
+      color: black;
+      padding: 10px 25px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 4px 2px;
+      cursor: pointer;}
+
+    .button3 {background-color: #BCC6CC;/*back button */
+      border-radius: 10px;
+      border: none;
+      color: black;
+      padding: 10px 25px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 4px 2px;
+      cursor: pointer;}
 .button4 {background-color: #e7e7e7; color: black;} /* Gray */
 .button5 {background-color: #555555;} /* Black */
 </style>
@@ -32,7 +43,7 @@ $subject_id = $_POST["subject_id"];
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    border: 2px solid red;
+    border: 2px solid gray;
     border-radius: 4px;
   }
   </style>
@@ -62,7 +73,7 @@ else if(isset($_GET['derror']))
       <p align = 'right'>
       <form method="post" action="add_event.php">
         <input type="hidden" name="action" value="subject_add"/>
-        <label class="label">Event Name</label>
+        <label class="label"><font size = '3'>Event Name</label>
         <p class="control has-icon has-icon-right">
           <input class="input is-success" name='event_name' type="text" placeholder="Event Name" >
           <input type='hidden' name='subject_id' value='<?php echo $subject_id; ?>'>

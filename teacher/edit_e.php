@@ -1,3 +1,70 @@
+<style>
+
+
+.button {
+    background-color: #357EC7; /* Green */
+    border-radius: 10px;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button2 {background-color: #357EC7; /*ิblue enter button*/}
+
+.button3 {background-color: #BCC6CC;/*back button */
+  border-radius: 10px;
+  border: none;
+  color: black;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;}
+
+
+
+.button4 {background-color: #e7e7e7; color: black; /* Gray */
+}
+
+
+.button5 {background-color: #FFDB58; }
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color:  #0000FF ;
+    color: white;
+}
+</style>
+
+<style>
+input[type=text] {
+  width: 25%;
+  padding: 15px 20px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  border: 2px solid gray;
+  border-radius: 4px;
+}
+</style>
+
 <?php
 require_once('../functions.php');
 if(!loggedin())
@@ -10,7 +77,11 @@ $event_name = $_POST['event_name'];
 
 ?>
 
-<li><a href="subject_Container.php">subject_Container</a></li>
+<li class="active"><a href="subject_Container.php">Subject Container</a></li>
+<li><a href="index.php">Teacher Panel</a></li>
+<li><a href="users.php">Users</a></li>
+<li><a href="scoreboard.php">Scoreboard</a></li>
+<li><a href="logout.php">Logout</a></li>
 </ul>
 </div><!--/.nav-collapse -->
 </div>
@@ -33,16 +104,16 @@ else if(isset($_GET['derror']))
   <br><br><br><br>
   <div class="tile is-parent">
     <article class="tile is-child notification is-info">
-      <p class="title">Edit Event</p>
+      <p class="title"><font size = '6'>Edit Event</p>
       <form method="post" action="edit_event.php">
         <input type="hidden" name="action" value="edit"/>
 
-        <label class="label">Event Name</label>
+        <label class="label"><font size = '3'>Event Name</label>
         <p class="control has-icon has-icon-right">
 
           <input class="input is-success" name='event_name' type="text" value="<?php echo $event_name; ?>" >
           <input type='hidden' name='event_id' value="<?php echo $event_id; ?>">
-          
+
           <span class="icon is-small">
             <i class="fa fa-check"></i>
           </span>
@@ -53,7 +124,7 @@ else if(isset($_GET['derror']))
             <input class="button is-primary" type="submit" name="submit" value="Submit"/>
           </p>
           <p class="control">
-            <a class='button is-danger'  onClick='window.history.back();'>Back</a>
+            <button class="button3"  onClick='window.history.back();'>Back</button>
           </p>
         </div>
       </form>

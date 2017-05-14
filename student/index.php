@@ -10,8 +10,8 @@
 ?>
               <li class="active"><a href="#">Problems</a></li>
               <li><a href="subject.php">Subject </a></li>
-              <li><a href="submissions.php?event_id=<?php echo $event_id ?>">Submissions</a></li>
-              <li><a href="scoreboard.php?event_id=<?php echo $event_id ?>">Scoreboard</a></li>
+            <!--  <li><a href="submissions.php?event_id=<?php echo $event_id ?>">Submissions</a></li> -->
+              <li><a href="scoreboard_student.php?event_id=<?php echo $event_id ?>">Scoreboard</a></li>
 
             </ul>
           </div><!--/.nav-collapse -->
@@ -74,6 +74,7 @@
       <br/>
       <form action="solve.php" method="get">
       <input type="hidden" name="id" value="<?php echo($selected['sl']);?>"/>
+      <input type="hidden" name="event_id" value="<?php echo $event_id ;?>"/>
       <?php
         // number of people who have solved the problem
         $query = "SELECT * FROM solve WHERE(status=2 AND problem_id='".$selected['sl']."')";
